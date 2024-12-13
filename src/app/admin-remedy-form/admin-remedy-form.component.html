@@ -1,0 +1,95 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Edit Remedy' : 'Add New Remedy' }}</h2>
+  
+    <!-- Remedy Form -->
+    <form (ngSubmit)="onSubmit()">
+      <!-- Remedy Name -->
+      <div class="form-group">
+        <label for="remedyName">Remedy Name</label>
+        <input
+          type="text"
+          id="remedyName"
+          class="form-control"
+          [(ngModel)]="remedy.RemedyName"
+          name="remedyName"
+          required
+        />
+      </div>
+  
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          class="form-control"
+          [(ngModel)]="remedy.Description"
+          name="description"
+          required
+        ></textarea>
+      </div>
+  
+      <!-- Benefits -->
+      <div class="form-group">
+        <label for="benefits">Benefits</label>
+        <textarea
+          id="benefits"
+          class="form-control"
+          [(ngModel)]="remedy.Benefits"
+          name="benefits"
+        ></textarea>
+      </div>
+  
+      <!-- Preparation Method -->
+      <div class="form-group">
+        <label for="preparationMethod">Preparation Method</label>
+        <textarea
+          id="preparationMethod"
+          class="form-control"
+          [(ngModel)]="remedy.PreparationMethod"
+          name="preparationMethod"
+        ></textarea>
+      </div>
+  
+      <!-- Usage Instructions -->
+      <div class="form-group">
+        <label for="usageInstructions">Usage Instructions</label>
+        <textarea
+          id="usageInstructions"
+          class="form-control"
+          [(ngModel)]="remedy.UsageInstructions"
+          name="usageInstructions"
+        ></textarea>
+      </div>
+  
+      <!-- Category ID -->
+      <div class="form-group">
+        <label for="categoryId">Category ID</label>
+        <input
+          type="number"
+          id="categoryId"
+          class="form-control"
+          [(ngModel)]="remedy.CategoryId"
+          name="categoryId"
+          required
+        />
+      </div>
+  
+ 
+
+  
+      <!-- Remedy Image Upload -->
+      <div class="form-group">
+        <label for="image">Upload Image</label>
+        <input
+          type="file"
+          id="image"
+          class="form-control"
+          (change)="onFileSelect($event)"
+        />
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update Remedy' : 'Add Remedy' }}</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Edit Product' : 'Add New Product' }}</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" id="productName" class="form-control" [(ngModel)]="product.ProductName" name="productName" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" id="price" class="form-control" [(ngModel)]="product.Price" name="price" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" [(ngModel)]="product.Description" name="description" required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="stockQuantity">Stock Quantity</label>
+        <input type="number" id="stockQuantity" class="form-control" [(ngModel)]="product.StockQuantity" name="stockQuantity" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="categoryId">Category ID</label>
+        <input type="number" id="categoryId" class="form-control" [(ngModel)]="product.CategoryId" name="categoryId" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="productImage">Product Image</label>
+        <input type="file" id="productImage" class="form-control" (change)="onFileSelect($event)" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update Product' : 'Add Product' }}</button>
+    </form>
+  </div>
+  

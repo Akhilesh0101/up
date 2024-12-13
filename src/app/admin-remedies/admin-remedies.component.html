@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <h2 class="text-center">Remedy Management</h2>
+  
+    <!-- Add Remedy Button -->
+    <div class="text-end mb-3">
+      <button class="btn btn-success" (click)="onAddRemedy()">Add Remedy</button>
+    </div>
+  
+    <!-- Remedy Table -->
+    <table class="table table-hover table-striped text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Remedy Name</th>
+          <th>Description</th>
+          <th>Remedy Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let remedy of remedies; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ remedy.RemedyName }}</td>
+          
+          <!-- Display image conditionally based on whether Remediesimg is a valid base64 string or URL -->
+          <td>{{ remedy.Description }}</td>
+          
+          <!-- Display image if it exists -->
+          <td>
+            <img *ngIf="remedy.Remediesimg" 
+                 [src]="'data:image/jpeg;base64,' + remedy.Remediesimg" 
+                 width="100" height="100" alt="Remedy Image" />
+            <!-- Fallback if no image exists -->
+            <span *ngIf="!remedy.Remediesimg">No Image</span>
+          </td>
+  
+          <td>
+            <button class="btn btn-primary btn-sm me-2" (click)="onEditRemedy(remedy)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="onDeleteRemedy(remedy.RemedyId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
